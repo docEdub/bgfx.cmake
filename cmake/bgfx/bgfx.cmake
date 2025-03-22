@@ -161,7 +161,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES iOS|tvOS)
 			"-framework OpenGLES -framework Metal -framework UIKit -framework CoreGraphics -framework QuartzCore -framework IOKit -framework CoreFoundation"
 	)
 elseif(APPLE)
-	find_library(COCOA_LIBRARY Cocoa)
+	set(COCOA_LIBRARY "-framework Cocoa")
 	find_library(METAL_LIBRARY Metal)
 	find_library(QUARTZCORE_LIBRARY QuartzCore)
 	find_library(IOKIT_LIBRARY IOKit)
