@@ -161,7 +161,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES iOS|tvOS)
 			"-framework OpenGLES -framework Metal -framework UIKit -framework CoreGraphics -framework QuartzCore -framework IOKit -framework CoreFoundation"
 	)
 elseif(APPLE)
-	set(COCOA_LIBRARY "-framework Cocoa")
+	# set(COCOA_LIBRARY "-framework Cocoa")
 	find_library(METAL_LIBRARY Metal)
 	find_library(QUARTZCORE_LIBRARY QuartzCore)
 	find_library(IOKIT_LIBRARY IOKit)
@@ -172,7 +172,8 @@ elseif(APPLE)
 	mark_as_advanced(IOKIT_LIBRARY)
 	mark_as_advanced(COREFOUNDATION_LIBRARY)
 	target_link_libraries(
-		bgfx PUBLIC ${COCOA_LIBRARY} ${METAL_LIBRARY} ${QUARTZCORE_LIBRARY} ${IOKIT_LIBRARY} ${COREFOUNDATION_LIBRARY}
+		# bgfx PUBLIC ${COCOA_LIBRARY} ${METAL_LIBRARY} ${QUARTZCORE_LIBRARY} ${IOKIT_LIBRARY} ${COREFOUNDATION_LIBRARY}
+		bgfx PUBLIC ${METAL_LIBRARY} ${QUARTZCORE_LIBRARY} ${IOKIT_LIBRARY} ${COREFOUNDATION_LIBRARY}
 	)
 endif()
 
